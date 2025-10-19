@@ -5,10 +5,9 @@ A React + TypeScript frontend for the Rootstock GasLens gas price oracle service
 ## Features
 
 - Real-time gas price data from Rootstock Mainnet and Testnet
-- On-chain smart contract integration (when contract is deployed)
 - Responsive design with Rootstock brand colors
 - Auto-refresh every 15 seconds
-- Web3 wallet integration via Wagmi
+- Clean, focused interface showing only essential gas price data
 
 ## Setup
 
@@ -33,14 +32,6 @@ A React + TypeScript frontend for the Rootstock GasLens gas price oracle service
 
 ## Configuration
 
-### Smart Contract Integration
-
-To enable on-chain data fetching, update the `CONTRACT_ADDRESS` in `src/OnChainData.tsx`:
-
-```typescript
-const CONTRACT_ADDRESS = '0xYourContractAddressHere'
-```
-
 ### Backend API
 
 The frontend expects the backend API to be running on `http://localhost:8000`. If you need to change this, update the API URLs in `src/App.tsx`.
@@ -50,18 +41,28 @@ The frontend expects the backend API to be running on `http://localhost:8000`. I
 - **React 18** with TypeScript
 - **Vite** for build tooling
 - **TailwindCSS** for styling
-- **Wagmi** for Web3 integration
-- **Ethers.js v5** for blockchain interaction
-- **TanStack Query** for data fetching
 
 ## Project Structure
 
 ```
 src/
 ├── App.tsx           # Main application component
-├── main.tsx          # Entry point with Wagmi configuration
+├── main.tsx          # Entry point
 ├── index.css         # Global styles with TailwindCSS
-├── GasCard.tsx       # Reusable gas price display component
-└── OnChainData.tsx   # Smart contract integration component
+└── GasCard.tsx       # Reusable gas price display component
 ```
+
+## API Endpoints
+
+The frontend fetches data from these backend endpoints:
+- `GET http://localhost:8000/api/gas/mainnet` - RSK Mainnet gas prices
+- `GET http://localhost:8000/api/gas/testnet` - RSK Testnet gas prices
+
+## Features
+
+- **Real-time Updates**: Data refreshes automatically every 15 seconds
+- **Loading States**: Shows loading spinners while fetching data
+- **Error Handling**: Displays error messages if API calls fail
+- **Responsive Design**: Works on desktop and mobile devices
+- **Rootstock Branding**: Uses official Rootstock colors and styling
 
