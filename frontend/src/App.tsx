@@ -47,18 +47,13 @@ const App: React.FC = () => {
   }
 
   useEffect(() => {
-    // Initial fetch
     fetchAllData()
-
-    // Auto-refresh every 15 seconds
     const interval = setInterval(fetchAllData, 15000)
-
     return () => clearInterval(interval)
   }, [])
 
   return (
     <div className="min-h-screen bg-rsk-dark-2">
-      {/* Header */}
       <div className="bg-rsk-dark-1 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <h1 className="text-4xl md:text-5xl font-bold text-center">
@@ -70,9 +65,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Gas Price Data Section */}
         <div className="mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GasCard
@@ -90,8 +83,6 @@ const App: React.FC = () => {
           </div>
         </div>
 
-
-        {/* Footer */}
         <div className="mt-16 text-center text-gray-400">
           <p className="text-sm">
             Data refreshes automatically every 15 seconds
